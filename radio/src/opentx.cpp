@@ -1933,10 +1933,12 @@ uint32_t pwrCheck()
 
   static uint8_t pwr_check_state = PWR_CHECK_ON;
 
+  bool inactivityShutdown = inactivity.counter > (60*12); // Inactivity alarm after 10 mins, shutdown after 12, proof of concept...
+
   if (pwr_check_state == PWR_CHECK_OFF) {
     return e_power_off;
   }
-  else if (pwrPressed()) {
+  else if (pwrPressed() || inactivityShutdown) {
     if (g_eeGeneral.backlightMode == e_backlight_mode_keys ||
         g_eeGeneral.backlightMode == e_backlight_mode_all)
       resetBacklightTimeout();
@@ -1954,7 +1956,8 @@ uint32_t pwrCheck()
       }
     }
     else {
-      inactivity.counter = 0;
+      if (!inactivityShutdown)
+        inactivity.counter = 0;
       if (g_eeGeneral.backlightMode != e_backlight_mode_off) {
         BACKLIGHT_ENABLE();
       }
