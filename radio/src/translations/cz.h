@@ -450,6 +450,7 @@
 #define TR_SPLASHSCREEN                TR("úvodní logo", "Zobrazit úvodní logo")
 #define TR_PWR_ON_DELAY                "Zpoždění zapnutí"
 #define TR_PWR_OFF_DELAY               "Zpoždění vypnutí"
+#define TR_PWR_OFF_IF_INACTIVE         "Pwr Off if inactive" 
 #define TR_THROTTLE_WARNING            TR("* Plyn", INDENT "Kontrola plynu")
 #define TR_CUSTOM_THROTTLE_WARNING     TR(INDENT INDENT INDENT INDENT "Vlas-Poz", INDENT INDENT INDENT INDENT "Vlastní pozice?")
 #define TR_CUSTOM_THROTTLE_WARNING_VAL TR("Poz. %", "Pozice %")
