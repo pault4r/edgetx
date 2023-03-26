@@ -447,6 +447,7 @@
 #define TR_SPLASHSCREEN                "Splash screen"
 #define TR_PWR_ON_DELAY                "Pwr On delay"
 #define TR_PWR_OFF_DELAY               "Pwr Off delay"
+#define TR_PWR_OFF_IF_INACTIVE         "Pwr Off if inactive" 
 #define TR_THROTTLE_WARNING            TR(INDENT "T-Warning", INDENT "Throttle state")
 #define TR_CUSTOM_THROTTLE_WARNING     TR(INDENT INDENT INDENT INDENT "Cust-Pos", INDENT INDENT INDENT INDENT "Custom position?")
 #define TR_CUSTOM_THROTTLE_WARNING_VAL TR("Pos. %", "Position %")

@@ -449,6 +449,7 @@
 #define TR_SPLASHSCREEN        "Logo ekranu"
 #define TR_PWR_ON_DELAY                "Pwr On delay"
 #define TR_PWR_OFF_DELAY               "Pwr Off delay"
+#define TR_PWR_OFF_IF_INACTIVE         "Pwr Off if inactive" 
 #define TR_THROTTLE_WARNING     TR(INDENT"OstrzGaz", INDENT "OstrzeżenieGaz")
 #define TR_CUSTOM_THROTTLE_WARNING     TR(INDENT INDENT INDENT INDENT "InnePoł", INDENT INDENT INDENT INDENT "Inne położenie?")
 #define TR_CUSTOM_THROTTLE_WARNING_VAL TR("Poł. %", "Położenie %")
