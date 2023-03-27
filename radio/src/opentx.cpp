@@ -1936,7 +1936,10 @@ uint32_t pwrCheck()
   static uint8_t pwr_check_state = PWR_CHECK_ON;
 
   uint8_t inactivityLimit = g_eeGeneral.pwrOffIfInactive;
-  bool inactivityShutdown = inactivityLimit && (inactivity.counter > (60*inactivityLimit)); 
+  bool inactivityShutdown = inactivityLimit && 
+      (inactivity.counter > (60*inactivityLimit)) && 
+      !TELEMETRY_STREAMING() &&
+      !(usbPlugged() && getSelectedUsbMode() != USB_UNSELECTED_MODE);
   
   if (pwr_check_state == PWR_CHECK_OFF) {
     return e_power_off;
