@@ -627,6 +627,15 @@ void RadioSetupPage::build(FormWindow * window)
                    SET_DIRTY();
                });
   }
+
+  // Pwr Off If Inactive
+  {
+    auto line = window->newLine(&grid);
+    new StaticText(line, rect_t{}, STR_PWR_OFF_IF_INACTIVE, 0, COLOR_THEME_PRIMARY1);
+    auto edit = new NumberEdit(line, rect_t{}, 0, 250, GET_SET_DEFAULT(g_eeGeneral.pwrOffIfInactive));
+    lv_obj_set_style_grid_cell_x_align(edit->getLvObj(), LV_GRID_ALIGN_STRETCH, 0);
+    edit->setSuffix(" minutes");
+  }
 #endif
 
 #if defined(PXX2)
