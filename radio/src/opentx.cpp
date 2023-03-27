@@ -417,6 +417,8 @@ void generalDefault()
   g_eeGeneral.pwrOffSpeed = 2;
 #endif
 
+  g_eeGeneral.pwrOffIfInactive = 0;
+  
   g_eeGeneral.chkSum = 0xFFFF;
 }
 
@@ -1760,8 +1762,9 @@ uint32_t pwrCheck()
 
   static uint8_t pwr_check_state = PWR_CHECK_ON;
 
-  bool inactivityShutdown = inactivity.counter > (60*12); // Inactivity alarm after 10 mins, shutdown after 12, proof of concept...
-
+  uint8_t inactivityLimit = g_eeGeneral.pwrOffIfInactive;
+  bool inactivityShutdown = inactivityLimit && (inactivity.counter > (60*inactivityLimit)); 
+  
   if (pwr_check_state == PWR_CHECK_OFF) {
     return e_power_off;
   }
