@@ -627,7 +627,9 @@ void RadioSetupPage::build(FormWindow * window)
                    SET_DIRTY();
                });
   }
+#endif
 
+#if defined(PWR_BUTTON_PRESS) && defined(PCBX10)
   // Pwr Off If Inactive
   {
     auto line = window->newLine(&grid);
