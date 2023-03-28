@@ -417,7 +417,9 @@ void generalDefault()
   g_eeGeneral.pwrOffSpeed = 2;
 #endif
 
+#if defined(PCBX10)
   g_eeGeneral.pwrOffIfInactive = 0;
+#endif
   
   g_eeGeneral.chkSum = 0xFFFF;
 }
