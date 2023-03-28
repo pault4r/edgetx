@@ -948,6 +948,10 @@ PACK(struct RadioData {
   NOBACKUP(int8_t imuMax);
   NOBACKUP(int8_t imuOffset);
 #endif
+
+#if defined(PCBX10)
+  NOBACKUP(uint8_t   pwrOffIfInactive);
+#endif
 });
 
 #undef SWITCHES_WARNING_DATA
