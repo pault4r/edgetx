@@ -974,6 +974,11 @@ PACK(struct RadioData {
   uint8_t modelSFDisabled:1;
   uint8_t modelCustomScriptsDisabled:1;
   uint8_t modelTelemetryDisabled:1;
+
+#if defined(PCBX10)
+  NOBACKUP(uint8_t   pwrOffIfInactive);
+#endif
+
 });
 
 #undef SWITCHES_WARNING_DATA

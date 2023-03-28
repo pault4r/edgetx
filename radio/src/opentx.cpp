@@ -1699,6 +1699,22 @@ uint32_t pwrPressedDuration()
 inline tmr10ms_t getTicks() { return g_tmr10ms; }
 #endif
 
+bool pwrOffDueToInactivity()
+{
+#if defined(PCBX10)
+  uint8_t inactivityLimit = g_eeGeneral.pwrOffIfInactive;
+#else
+  uint8_t inactivityLimit = 0;
+#endif
+
+  bool inactivityShutdown = inactivityLimit && 
+      (inactivity.counter > (60*inactivityLimit)) && 
+      !TELEMETRY_STREAMING() &&
+      !(usbPlugged() && getSelectedUsbMode() != USB_UNSELECTED_MODE);
+
+  return inactivityShutdown;
+}
+
 uint32_t pwrCheck()
 {
   const char * message = nullptr;
@@ -1711,11 +1727,14 @@ uint32_t pwrCheck()
 
   static uint8_t pwr_check_state = PWR_CHECK_ON;
 
+  bool inactivityShutdown = pwrOffDueToInactivity();    
+  
   if (pwr_check_state == PWR_CHECK_OFF) {
     return e_power_off;
   }
-  else if (pwrPressed()) {
-    inactivityTimerReset(ActivitySource::Keys);
+  else if (pwrPressed() || inactivityShutdown) {
+    if (!inactivityShutdown)
+      inactivityTimerReset(ActivitySource::Keys);
 
     if (TELEMETRY_STREAMING()) {
       message = STR_MODEL_STILL_POWERED;
