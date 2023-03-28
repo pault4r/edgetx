@@ -983,6 +983,11 @@ PACK(struct RadioData {
     return backlightBright;
 #endif
   });
+
+#if defined(PCBX10)
+  NOBACKUP(uint8_t   pwrOffIfInactive);
+#endif
+
 });
 
 #undef SWITCHES_WARNING_DATA
