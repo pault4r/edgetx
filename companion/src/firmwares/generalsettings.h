@@ -300,6 +300,7 @@ class GeneralSettings {
     bool modelSFDisabled;
     bool modelCustomScriptsDisabled;
     bool modelTelemetryDisabled;
+    unsigned int pwrOffIfInactive;
 
     bool switchPositionAllowedTaranis(int index) const;
     bool switchSourceAllowedTaranis(int index) const;
