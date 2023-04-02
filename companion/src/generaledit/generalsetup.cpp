@@ -320,6 +320,14 @@ ui(new Ui::GeneralSetup)
     ui->vBatMaxDSB->hide();
   }
 
+  if (IS_HORUS_X10(firmware->getBoard()) || IS_FAMILY_T16(firmware->getBoard())) {
+    ui->pwrOffIfInactiveSB->setValue(generalSettings.pwrOffIfInactive);
+  }
+  else {
+    ui->pwrOffIfInactiveLabel->hide();
+    ui->pwrOffIfInactiveSB->hide();
+  }
+
   disableMouseScrolling();
 }
 
@@ -705,10 +713,15 @@ void GeneralSetupPanel::on_adjustRTC_stateChanged(int)
   emit modified();
 }
 
-
 void GeneralSetupPanel::on_inactimerSB_editingFinished()
 {
   generalSettings.inactivityTimer = ui->inactimerSB->value();
+  emit modified();
+}
+
+void GeneralSetupPanel::on_pwrOffIfInactiveSB_editingFinished()
+{
+  generalSettings.pwrOffIfInactive = ui->pwrOffIfInactiveSB->value();
   emit modified();
 }
 

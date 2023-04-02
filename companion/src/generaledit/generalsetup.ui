@@ -1234,14 +1234,14 @@ p, li { white-space: pre-wrap; }
        </item>
       </widget>
      </item>
-     <item row="20" column="0">
+     <item row="21" column="0">
       <widget class="QLabel" name="gpsFormatLabel">
        <property name="text">
         <string>GPS Coordinates</string>
        </property>
       </widget>
      </item>
-     <item row="19" column="1">
+     <item row="20" column="1">
       <widget class="QComboBox" name="units_CB">
        <item>
         <property name="text">
@@ -1255,7 +1255,7 @@ p, li { white-space: pre-wrap; }
        </item>
       </widget>
      </item>
-     <item row="13" column="0">
+     <item row="14" column="0">
       <widget class="QLabel" name="label_27">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
@@ -1305,7 +1305,38 @@ p, li { white-space: pre-wrap; }
        </property>
       </widget>
      </item>
-     <item row="17" column="1">
+     <item row="10" column="1">
+      <widget class="QSpinBox" name="pwrOffIfInactiveSB">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>22</height>
+        </size>
+       </property>
+       <property name="toolTip">
+        <string/>
+       </property>
+       <property name="statusTip">
+        <string/>
+       </property>
+       <property name="whatsThis">
+        <string>If not zero transmitter will shut down if it has been left without inputs for the specified number of minutes.</string>
+       </property>
+       <property name="suffix">
+        <string> min</string>
+       </property>
+       <property name="maximum">
+        <number>255</number>
+       </property>
+      </widget>
+     </item>	 
+     <item row="18" column="1">
       <widget class="QComboBox" name="stickmodeCB">
        <property name="toolTip">
         <string/>
@@ -1378,7 +1409,7 @@ Mode 4:
        </property>
       </widget>
      </item>
-     <item row="18" column="1">
+     <item row="19" column="1">
       <widget class="QComboBox" name="channelorderCB">
        <property name="toolTip">
         <string/>
@@ -1514,7 +1545,7 @@ Mode 4:
        </item>
       </widget>
      </item>
-     <item row="21" column="0">
+     <item row="22" column="0">
       <widget class="QLabel" name="switchesDelayLabel">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
@@ -1604,21 +1635,21 @@ Acceptable values are 3v..12v</string>
        </property>
       </widget>
      </item>
-     <item row="11" column="0">
+     <item row="12" column="0">
       <widget class="QLabel" name="pwrOnDelayLabel">
        <property name="text">
         <string>Power On Delay</string>
        </property>
       </widget>
      </item>
-     <item row="23" column="0">
+     <item row="24" column="0">
       <widget class="QLabel" name="jackModeLabel">
        <property name="text">
         <string>Jack Mode</string>
        </property>
       </widget>
      </item>
-     <item row="16" column="0">
+     <item row="17" column="0">
       <widget class="QLabel" name="mavbaud_label">
        <property name="minimumSize">
         <size>
@@ -1631,7 +1662,7 @@ Acceptable values are 3v..12v</string>
        </property>
       </widget>
      </item>
-     <item row="18" column="0">
+     <item row="19" column="0">
       <widget class="QLabel" name="label_13">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
@@ -1747,7 +1778,7 @@ Acceptable values are 3v..12v</string>
        </item>
       </layout>
      </item>
-     <item row="13" column="1" colspan="2">
+     <item row="14" column="1" colspan="2">
       <widget class="QCheckBox" name="alarmwarnChkB">
        <property name="sizePolicy">
         <sizepolicy hsizetype="MinimumExpanding" vsizetype="Minimum">
@@ -1848,7 +1879,7 @@ p, li { white-space: pre-wrap; }
        </item>
       </widget>
      </item>
-     <item row="10" column="1" colspan="2">
+     <item row="11" column="1" colspan="2">
       <layout class="QHBoxLayout" name="horizontalLayout">
        <item>
         <widget class="QComboBox" name="splashScreenDuration">
@@ -1921,7 +1952,26 @@ p, li { white-space: pre-wrap; }
        </property>
       </widget>
      </item>
-     <item row="24" column="0">
+	 <item row="10" column="0">
+      <widget class="QLabel" name="pwrOffIfInactiveLabel">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>Power Off If Inactive</string>
+       </property>
+      </widget>
+     </item>
+     <item row="25" column="0">
       <spacer name="verticalSpacer_2">
        <property name="orientation">
         <enum>Qt::Vertical</enum>
@@ -1934,7 +1984,7 @@ p, li { white-space: pre-wrap; }
        </property>
       </spacer>
      </item>
-     <item row="23" column="1">
+     <item row="24" column="1">
       <widget class="QComboBox" name="jackModeCB">
        <item>
         <property name="text">
@@ -1953,7 +2003,7 @@ p, li { white-space: pre-wrap; }
        </item>
       </widget>
      </item>
-     <item row="16" column="1" colspan="2">
+     <item row="17" column="1" colspan="2">
       <widget class="QComboBox" name="mavbaud_CB">
        <item>
         <property name="text">
@@ -2031,7 +2081,7 @@ p, li { white-space: pre-wrap; }
        </property>
       </widget>
      </item>
-     <item row="20" column="1">
+     <item row="21" column="1">
       <widget class="QComboBox" name="gpsFormatCB">
        <item>
         <property name="text">
@@ -2083,7 +2133,7 @@ p, li { white-space: pre-wrap; }
        </property>
       </widget>
      </item>
-     <item row="14" column="1" colspan="2">
+     <item row="15" column="1" colspan="2">
       <widget class="QCheckBox" name="memwarnChkB">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
@@ -2137,7 +2187,7 @@ p, li { white-space: pre-wrap; }
        </property>
       </widget>
      </item>
-     <item row="15" column="1">
+     <item row="16" column="1">
       <widget class="QCheckBox" name="rssiPowerOffWarnChkB">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
@@ -2172,7 +2222,7 @@ p, li { white-space: pre-wrap; }
        </property>
       </widget>
      </item>
-     <item row="14" column="0">
+     <item row="15" column="0">
       <widget class="QLabel" name="label_11">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
@@ -2191,7 +2241,7 @@ p, li { white-space: pre-wrap; }
        </property>
       </widget>
      </item>
-     <item row="15" column="0">
+     <item row="16" column="0">
       <widget class="QLabel" name="label_15">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
@@ -2347,7 +2397,7 @@ p, li { white-space: pre-wrap; }
        </item>
       </widget>
      </item>
-     <item row="10" column="0">
+     <item row="11" column="0">
       <widget class="QLabel" name="splashScreenLabel">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
@@ -2366,7 +2416,7 @@ p, li { white-space: pre-wrap; }
        </property>
       </widget>
      </item>
-     <item row="21" column="1">
+     <item row="22" column="1">
       <widget class="QSpinBox" name="switchesDelay">
        <property name="toolTip">
         <string/>
@@ -2399,21 +2449,21 @@ p, li { white-space: pre-wrap; }
        </property>
       </widget>
      </item>
-     <item row="17" column="0">
+     <item row="18" column="0">
       <widget class="QLabel" name="label_14">
        <property name="text">
         <string>Stick Mode</string>
        </property>
       </widget>
      </item>
-     <item row="22" column="0">
+     <item row="23" column="0">
       <widget class="QLabel" name="usbModeLabel">
        <property name="text">
         <string>USB Mode</string>
        </property>
       </widget>
      </item>
-     <item row="22" column="1">
+     <item row="23" column="1">
       <widget class="QComboBox" name="usbModeCB">
        <item>
         <property name="text">
@@ -2437,21 +2487,21 @@ p, li { white-space: pre-wrap; }
        </item>
       </widget>
      </item>
-     <item row="19" column="0">
+     <item row="20" column="0">
       <widget class="QLabel" name="units_label">
        <property name="text">
         <string>Measurement Units</string>
        </property>
       </widget>
      </item>
-     <item row="12" column="0">
+     <item row="13" column="0">
       <widget class="QLabel" name="pwrOffDelayLabel">
        <property name="text">
         <string>Power Off Delay</string>
        </property>
       </widget>
      </item>
-     <item row="11" column="1">
+     <item row="12" column="1">
       <widget class="QSpinBox" name="pwrOnDelay">
        <property name="suffix">
         <string> sec</string>
@@ -2461,7 +2511,7 @@ p, li { white-space: pre-wrap; }
        </property>
       </widget>
      </item>
-     <item row="12" column="1">
+     <item row="13" column="1">
       <widget class="QSpinBox" name="pwrOffDelay">
        <property name="suffix">
         <string> sec</string>
