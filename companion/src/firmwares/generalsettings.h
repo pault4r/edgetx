@@ -283,6 +283,8 @@ class GeneralSettings {
     int pwrOnSpeed;
     int pwrOffSpeed;
 
+    unsigned int pwrOffIfInactive;
+
     bool switchPositionAllowedTaranis(int index) const;
     bool switchSourceAllowedTaranis(int index) const;
     bool isPotAvailable(int index) const;
