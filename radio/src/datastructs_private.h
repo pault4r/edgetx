@@ -158,16 +158,17 @@ PACK(struct CustomFunctionData {
   uint16_t func:7 ENUM(Functions);
   CUST_ATTR(def,r_customFn,w_customFn);
   PACK(union {
+    char dummy;
     NOBACKUP(PACK(struct {
       char name[LEN_FUNCTION_NAME];
     }) play);
 
-    PACK(struct {
+    NOBACKUP(PACK(struct {
       int16_t val;
       uint8_t mode;
       uint8_t param;
       NOBACKUP(CFN_SPARE_TYPE spare);
-    }) all;
+    }) all);
 
     NOBACKUP(PACK(struct {
       int32_t val1;
