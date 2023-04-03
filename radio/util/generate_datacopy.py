@@ -17,12 +17,12 @@ def build_struct(cursor, anonymousUnion=False):
 
     for c in cursor.get_children():
         if c.kind == clang.cindex.CursorKind.UNION_DECL:
-            if c.spelling and not c.spelling.startswith("(anon"):
+            if c.spelling and not c.spelling.startswith("("):
                 raise Exception("Cannot handle non anonymous unions")
 
             copied_union_member = False
             for uc in c.get_children():
-                if not uc.spelling or uc.kind == clang.cindex.CursorKind.PACKED_ATTR:
+                if not uc.spelling or uc.spelling.startswith("(") or uc.kind == clang.cindex.CursorKind.PACKED_ATTR:
                     # Ignore
                     pass
                 else:
