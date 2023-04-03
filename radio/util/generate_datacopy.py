@@ -17,7 +17,7 @@ def build_struct(cursor, anonymousUnion=False):
 
     for c in cursor.get_children():
         if c.kind == clang.cindex.CursorKind.UNION_DECL:
-            if c.spelling:
+            if c.spelling and not c.spelling.startswith("(anon"):
                 raise Exception("Cannot handle non anonymous unions")
 
             copied_union_member = False
