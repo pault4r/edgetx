@@ -119,7 +119,6 @@ void GeneralSettings::init()
   backlightMode = 3; // keys and sticks
   backlightDelay = 2; // 2 * 5 = 10 secs
   inactivityTimer = 10;
-  pwrOffIfInactive = 0; // disabled
 
   // backlightBright = 0; // 0 = 100%
 
