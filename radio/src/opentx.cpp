@@ -1686,15 +1686,10 @@ uint32_t pwrCheck()
   if (pwr_check_state == PWR_CHECK_OFF) {
     return e_power_off;
   }
-<<<<<<< HEAD
-  else if (pwrPressed()) {
-    inactivityTimerReset(ActivitySource::Keys);
-=======
   else if (pwrPressed() || inactivityShutdown) {
-    if (g_eeGeneral.backlightMode == e_backlight_mode_keys ||
-        g_eeGeneral.backlightMode == e_backlight_mode_all)
-      resetBacklightTimeout();
->>>>>>> 9f7eb8105 (Option to automatically power off tx16 radio after)
+
+    if (!inactivityShutdown)
+      inactivityTimerReset(ActivitySource::Keys);
 
     if (TELEMETRY_STREAMING()) {
       message = STR_MODEL_STILL_POWERED;
@@ -1709,11 +1704,6 @@ uint32_t pwrCheck()
       }
     }
     else {
-<<<<<<< HEAD
-=======
-      if (!inactivityShutdown)
-        inactivity.counter = 0;
->>>>>>> 9f7eb8105 (Option to automatically power off tx16 radio after)
       if (g_eeGeneral.backlightMode != e_backlight_mode_off) {
         BACKLIGHT_ENABLE();
       }
