@@ -979,9 +979,9 @@ PACK(struct RadioData {
   uint8_t modelSFDisabled:1;
   uint8_t modelCustomScriptsDisabled:1;
   uint8_t modelTelemetryDisabled:1;
-#if defined(PCBX10)
+//#if defined(PCBX10) || defined (RADIO_T20) || defined(PCBX7) || defined(PCBNV14) || defined(PCBXLITE) || defined(PCBXLITES) || defined(PCBX9D) || defined(PCBX9DP) || defined(PCBX9E) || defined(RADIO_TPRO)
   NOBACKUP(uint8_t   pwrOffIfInactive);
-#endif
+//#endif
 });
 
 #undef SWITCHES_WARNING_DATA
