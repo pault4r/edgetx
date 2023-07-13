@@ -1660,6 +1660,18 @@ uint32_t pwrPressedDuration()
 inline tmr10ms_t getTicks() { return g_tmr10ms; }
 #endif
 
+bool pwrOffDueToInactivity()
+{
+  uint8_t inactivityLimit = g_eeGeneral.pwrOffIfInactive;
+
+  bool inactivityShutdown = inactivityLimit && 
+      (inactivity.counter > (60*inactivityLimit)) && 
+      !TELEMETRY_STREAMING() &&
+      !(usbPlugged() && getSelectedUsbMode() != USB_UNSELECTED_MODE);
+
+  return inactivityShutdown;
+}
+
 uint32_t pwrCheck()
 {
   const char * message = nullptr;
@@ -1672,16 +1684,7 @@ uint32_t pwrCheck()
 
   static uint8_t pwr_check_state = PWR_CHECK_ON;
 
-#if defined(PCBX10)
-  uint8_t inactivityLimit = g_eeGeneral.pwrOffIfInactive;
-#else
-  uint8_t inactivityLimit = 0;
-#endif
-
-  bool inactivityShutdown = inactivityLimit && 
-      (inactivity.counter > (60*inactivityLimit)) && 
-      !TELEMETRY_STREAMING() &&
-      !(usbPlugged() && getSelectedUsbMode() != USB_UNSELECTED_MODE);
+  bool inactivityShutdown = pwrOffDueToInactivity();
   
   if (pwr_check_state == PWR_CHECK_OFF) {
     return e_power_off;
