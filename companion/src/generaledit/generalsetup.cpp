@@ -263,6 +263,8 @@ ui(new Ui::GeneralSetup)
     ui->pwrOnDelay->hide();
     ui->pwrOffDelayLabel->hide();
     ui->pwrOffDelay->hide();
+    ui->pwrOffIfInactiveLabel->hide();
+    ui->pwrOffIfInactiveSB->hide();
   }
   else if (!IS_TARANIS(firmware->getBoard())) {
     ui->pwrOnDelayLabel->hide();
@@ -320,6 +322,7 @@ ui(new Ui::GeneralSetup)
     ui->vBatMaxDSB->hide();
   }
 
+  /*
   if (IS_HORUS_X10(firmware->getBoard()) || IS_FAMILY_T16(firmware->getBoard())) {
     ui->pwrOffIfInactiveSB->setValue(generalSettings.pwrOffIfInactive);
   }
@@ -327,6 +330,7 @@ ui(new Ui::GeneralSetup)
     ui->pwrOffIfInactiveLabel->hide();
     ui->pwrOffIfInactiveSB->hide();
   }
+  */
 
   disableMouseScrolling();
 }
@@ -471,6 +475,8 @@ void GeneralSetupPanel::setValues()
 
   ui->pwrOnDelay->setValue(2 - generalSettings.pwrOnSpeed);
   ui->pwrOffDelay->setValue(2 - generalSettings.pwrOffSpeed);
+  ui->pwrOffIfInactiveSB->setValue(generalSettings.pwrOffIfInactive);
+
 
   ui->registrationId->setText(generalSettings.registrationId);
 

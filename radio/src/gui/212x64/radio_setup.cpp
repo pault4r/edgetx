@@ -83,8 +83,10 @@ enum MenuRadioSetupItems {
   CASE_PCBX9E_PCBX9DP(ITEM_RADIO_SETUP_BACKLIGHT_COLOR)
   ITEM_RADIO_SETUP_FLASH_BEEP,
   CASE_SPLASH_PARAM(ITEM_RADIO_SETUP_DISABLE_SPLASH)
+  CASE_PWR_BUTTON_PRESS(ITEM_RADIO_SETUP_POWER_LABEL)
   CASE_PWR_BUTTON_PRESS(ITEM_RADIO_SETUP_PWR_ON_SPEED)
   CASE_PWR_BUTTON_PRESS(ITEM_RADIO_SETUP_PWR_OFF_SPEED)
+  CASE_PWR_BUTTON_PRESS(ITEM_RADIO_SETUP_PWR_OFF_IF_INACTIVE)
 #if defined(PXX2)
   ITEM_RADIO_SETUP_OWNER_ID,
 #endif
@@ -186,8 +188,10 @@ void menuRadioSetup(event_t event)
       CASE_PCBX9E_PCBX9DP(0) // backlight color
       0, // flash beep
     CASE_SPLASH_PARAM(0) // disable splash
+    CASE_PWR_BUTTON_PRESS(LABEL(POWER))
     CASE_PWR_BUTTON_PRESS(0) // pwr on speed
     CASE_PWR_BUTTON_PRESS(0) // pwr off speed
+    CASE_PWR_BUTTON_PRESS(0) // pwr off if inactive
     CASE_PXX2(0) // owner registration ID
     CASE_GPS(LABEL(GPS))
       CASE_GPS(0) // timezone
@@ -526,19 +530,32 @@ void menuRadioSetup(event_t event)
 #endif
 
 #if defined(PWR_BUTTON_PRESS)
+      case ITEM_RADIO_SETUP_POWER_LABEL:
+        lcdDrawTextAlignedLeft(y, "Power");
+        break;
+
       case ITEM_RADIO_SETUP_PWR_ON_SPEED:
-        lcdDrawTextAlignedLeft(y, STR_PWR_ON_DELAY);
+        lcdDrawText(INDENT_WIDTH, y, STR_ON_DELAY);
         lcdDrawNumber(RADIO_SETUP_2ND_COLUMN, y, 2 - g_eeGeneral.pwrOnSpeed, attr|LEFT);
         lcdDrawChar(lcdLastRightPos, y, 's');
         if (attr) CHECK_INCDEC_GENVAR(event, g_eeGeneral.pwrOnSpeed, -1, 2);
         break;
 
       case ITEM_RADIO_SETUP_PWR_OFF_SPEED:
-        lcdDrawTextAlignedLeft(y, STR_PWR_OFF_DELAY);
+        lcdDrawText(INDENT_WIDTH, y, STR_OFF_DELAY);
         lcdDrawNumber(RADIO_SETUP_2ND_COLUMN, y, 2 - g_eeGeneral.pwrOffSpeed, attr|LEFT);
         lcdDrawChar(lcdLastRightPos, y, 's');
         if (attr) CHECK_INCDEC_GENVAR(event, g_eeGeneral.pwrOffSpeed, -1, 2);
         break;
+
+      case ITEM_RADIO_SETUP_PWR_OFF_IF_INACTIVE:
+        lcdDrawText(INDENT_WIDTH, y, STR_AUTO_OFF);
+        lcdDrawNumber(RADIO_SETUP_2ND_COLUMN, y, g_eeGeneral.pwrOffIfInactive, attr|LEFT);
+        lcdDrawChar(lcdLastRightPos, y, 'm');
+        if (attr) CHECK_INCDEC_GENVAR(event, g_eeGeneral.pwrOffIfInactive, 0, 255);
+        break;
+
+        #error "don't think there are any such transmitters..."
 #endif
 
 #if defined(GPS)
