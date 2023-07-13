@@ -554,8 +554,6 @@ void menuRadioSetup(event_t event)
         lcdDrawChar(lcdLastRightPos, y, 'm');
         if (attr) CHECK_INCDEC_GENVAR(event, g_eeGeneral.pwrOffIfInactive, 0, 255);
         break;
-
-        #error "don't think there are any such transmitters..."
 #endif
 
 #if defined(GPS)
