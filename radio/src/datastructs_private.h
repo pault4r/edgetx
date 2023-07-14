@@ -980,7 +980,9 @@ PACK(struct RadioData {
   uint8_t modelCustomScriptsDisabled:1;
   uint8_t modelTelemetryDisabled:1;
   
+#if defined(PWR_BUTTON_PRESS)
   NOBACKUP(uint8_t   pwrOffIfInactive);
+#endif
 });
 
 #undef SWITCHES_WARNING_DATA
