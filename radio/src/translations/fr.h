@@ -375,7 +375,7 @@
 #define TR_SPLASHSCREEN                "Ecran d'accueil"
 #define TR_PWR_ON_DELAY                "Délai btn ON"
 #define TR_PWR_OFF_DELAY               "Délai btn OFF"
-#define TR_PWR_OFF_IF_INACTIVE         "Pwr Off if inactive" 
+#define TR_PWR_AUTO_OFF                "Pwr Auto Off" 
 #define TR_THROTTLE_WARNING             TR(INDENT "Alerte gaz", INDENT "Alerte gaz")
 #define TR_CUSTOM_THROTTLE_WARNING     TR(INDENT INDENT INDENT INDENT "Pos. Perso", INDENT INDENT INDENT INDENT "Position perso ?")
 #define TR_CUSTOM_THROTTLE_WARNING_VAL TR("Pos. %", "Position %")
