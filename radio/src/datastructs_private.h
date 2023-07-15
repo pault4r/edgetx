@@ -982,7 +982,7 @@ PACK(struct RadioData {
   uint8_t modelSFDisabled:1;
   uint8_t modelCustomScriptsDisabled:1;
   uint8_t modelTelemetryDisabled:1;
-  uint8_t spare7:5; SKIP;
+  uint8_t spare7:5 SKIP;
 
   NOBACKUP(uint8_t pwrOffIfInactive);
 });
