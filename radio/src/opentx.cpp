@@ -1701,11 +1701,7 @@ inline tmr10ms_t getTicks() { return g_tmr10ms; }
 
 bool pwrOffDueToInactivity()
 {
-#if defined(PCBX10)
   uint8_t inactivityLimit = g_eeGeneral.pwrOffIfInactive;
-#else
-  uint8_t inactivityLimit = 0;
-#endif
 
   bool inactivityShutdown = inactivityLimit && 
       (inactivity.counter > (60*inactivityLimit)) && 

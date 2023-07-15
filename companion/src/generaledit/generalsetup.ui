@@ -1689,14 +1689,14 @@ p, li { white-space: pre-wrap; }
        </property>
       </widget>
      </item>
-     <item row="13" column="0">
+     <item row="12" column="0">
       <widget class="QLabel" name="pwrOffDelayLabel">
        <property name="text">
         <string>Power Off Delay</string>
        </property>
       </widget>
      </item>
-     <item row="12" column="1">
+     <item row="11" column="1">
       <widget class="QSpinBox" name="pwrOnDelay">
        <property name="suffix">
         <string> sec</string>
@@ -1706,7 +1706,7 @@ p, li { white-space: pre-wrap; }
        </property>
       </widget>
      </item>
-     <item row="13" column="1">
+     <item row="12" column="1">
       <widget class="QSpinBox" name="pwrOffDelay">
        <property name="suffix">
         <string> sec</string>
