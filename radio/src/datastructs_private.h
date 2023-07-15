@@ -962,6 +962,8 @@ PACK(struct RadioData {
   // Radio level tabs control (global settings)
 #if defined(COLORLCD)
   uint8_t radioThemesDisabled:1;
+#else
+  uint8_t radioThemesDisabledSpare:1 SKIP;
 #endif
   uint8_t radioGFDisabled:1;
   uint8_t radioTrainerDisabled:1;
@@ -971,9 +973,11 @@ PACK(struct RadioData {
   uint8_t modelCurvesDisabled:1;
   uint8_t modelGVDisabled:1;
   uint8_t modelLSDisabled:1;
+
   uint8_t modelSFDisabled:1;
   uint8_t modelCustomScriptsDisabled:1;
   uint8_t modelTelemetryDisabled:1;
+  uint8_t spare7:5 SKIP;
 
   NOBACKUP(uint8_t getBrightness() const
   {
@@ -984,10 +988,7 @@ PACK(struct RadioData {
 #endif
   });
 
-#if defined(PCBX10)
   NOBACKUP(uint8_t   pwrOffIfInactive);
-#endif
-
 });
 
 #undef SWITCHES_WARNING_DATA
