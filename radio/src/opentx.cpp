@@ -29,6 +29,7 @@
 #include "switches.h"
 #include "inactivity_timer.h"
 #include "input_mapping.h"
+#include "trainer.h"
 
 #include "tasks.h"
 #include "tasks/mixer_task.h"
@@ -1702,11 +1703,20 @@ inline tmr10ms_t getTicks() { return g_tmr10ms; }
 bool pwrOffDueToInactivity()
 {
   uint8_t inactivityLimit = g_eeGeneral.pwrOffIfInactive;
+  static tmr10ms_t lastConnectedTime = 0;
+
+  tmr10ms_t currentTime = get_tmr10ms();
+
+  if (
+    TELEMETRY_STREAMING() ||
+    (usbPlugged() && getSelectedUsbMode() != USB_UNSELECTED_MODE) ||
+    IS_TRAINER_INPUT_VALID()
+  )
+    lastConnectedTime = currentTime;
 
   bool inactivityShutdown = inactivityLimit && 
-      (inactivity.counter > (60*inactivityLimit)) && 
-      !TELEMETRY_STREAMING() &&
-      !(usbPlugged() && getSelectedUsbMode() != USB_UNSELECTED_MODE);
+    inactivity.counter > 60u*inactivityLimit &&
+    (currentTime-lastConnectedTime)/100u > 60u*inactivityLimit;
 
   return inactivityShutdown;
 }
