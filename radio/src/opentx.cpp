@@ -1711,7 +1711,7 @@ bool pwrOffDueToInactivity()
   if (
     TELEMETRY_STREAMING() ||
     (usbPlugged() && getSelectedUsbMode() != USB_UNSELECTED_MODE) ||
-    IS_TRAINER_INPUT_VALID()
+    trainerInputValidityTimer != 0 // previously IS_TRAINER_INPUT_VALID()
   )
     lastConnectedTime = currentTime;
 
